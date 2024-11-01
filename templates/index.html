@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Drug Side Effects Predictor</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Drug Side Effects Predictor</h1>
+        <form method="POST">
+            <label for="drug_name">Drug Name:</label>
+            <input type="text" id="drug_name" name="drug_name" required>
+
+            <label for="medical_condition">Medical Condition:</label>
+            <input type="text" id="medical_condition" name="medical_condition" required>
+
+            <label for="generic_name">Generic Name:</label>
+            <input type="text" id="generic_name" name="generic_name" required>
+
+            <label for="drug_classes">Drug Classes:</label>
+            <input type="text" id="drug_classes" name="drug_classes" required>
+
+            <label for="pregnancy_category">Pregnancy Category:</label>
+            <input type="text" id="pregnancy_category" name="pregnancy_category" required>
+
+            <label for="alcohol">Alcohol:</label>
+            <input type="text" id="alcohol" name="alcohol" required>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+        <h2>Predicted Side Effects:</h2>
+        <p>{{ prediction[0] }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
